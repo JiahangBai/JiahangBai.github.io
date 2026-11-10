@@ -9,9 +9,9 @@
 
 </head>
 <body>
-<nav aria-label="主导航"><div class="wrap"><a class="name" href="#about">白佳航</a><a href="#research">研究兴趣</a><a href="#ongoing">研究</a><a href="#experience">科研经历</a><a href="#education">教育经历</a><a href="#honors">竞赛与奖项</a><a class="language-switch" href="index.html" hreflang="en" lang="en">English</a></div></nav>
+<nav aria-label="主导航"><div class="wrap"><a class="name" href="#about">白佳航</a><a href="#research">研究兴趣</a><a href="#ongoing">论文</a><a href="#experience">科研经历</a><a href="#education">教育经历</a><a href="#honors">竞赛与奖项</a><a class="language-switch" href="index.html" hreflang="en" lang="en">English</a></div></nav>
 <main class="wrap">
-<header id="about"><div><h1>白佳航 <span lang="en">Jiahang Bai</span></h1><p class="role">本科生 · 吉林大学人工智能学院</p><p>我还在吉林大学人工智能学院读本科，曾在 <a href="https://www.dexmal.com/">Dexmal</a> 做了近一年的具身智能算法实习，参与模型训练和真机实验。</p><p>有个问题一直让我好奇：除了扩大数据量和参数规模，如何让机器人在行动时用上更丰富的上下文，从当前观测延伸到过去的交互？</p><p>于是，我在第一篇论文 <a href="#s2mem">S²Mem</a> 中探索了如何让机器人保留短暂出现的视觉线索，并用它们指导后续动作。</p><p>随着 GPT Astra 等基础模型的能力不断增强，我认为迈向 Physical AI 的关键一步是将强视觉语言模型与能保留控制关键信息的 Action Token 表征结合起来。</p><div class="links"><a href="mailto:baijh2323@mails.jlu.edu.cn">邮箱</a><a href="https://github.com/JiahangBai">GitHub</a><a href="https://xhslink.cn/o/AUrNLGoAuPa" target="_blank" rel="noopener">小红书 · 北极狐</a><a href="assets/Jiahang_Bai_Research_CV.pdf?v=intro-order" target="_blank" rel="noopener">英文简历（PDF）</a><a href="#s2mem">代表工作</a></div></div><a class="photo" href="assets/portrait-mountains.jpg" aria-label="查看头像"><img class="portrait" src="assets/portrait-mountains.jpg" alt="山谷中的白佳航" width="190" height="190"></a></header>
+<header id="about"><div><h1>白佳航 <span lang="en">Jiahang Bai</span></h1><p class="role">本科生 · 吉林大学人工智能学院</p><p>我还在吉林大学人工智能学院读本科，曾在 <a href="https://www.dexmal.com/">Dexmal</a> 做了近一年的具身智能算法实习，参与模型训练和真机实验。</p><p>有个问题一直让我好奇：除了扩大数据量和参数规模，如何让机器人在行动时用上更丰富的上下文，从当前观测延伸到过去的交互？</p><p>于是，我在第一篇论文 <a href="#s2mem">S²Mem</a> 中探索了如何让机器人保留短暂出现的视觉线索，并用它们指导后续动作。</p><p>随着 GPT Astra 等基础模型的能力不断增强，我认为迈向 Physical AI 的关键一步是将强视觉语言模型与能保留控制关键信息的 Action Token 表征结合起来。</p><div class="links"><a href="mailto:baijh2323@mails.jlu.edu.cn">邮箱</a><a href="https://github.com/JiahangBai">GitHub</a><a href="https://xhslink.cn/o/AUrNLGoAuPa" target="_blank" rel="noopener">小红书 · 北极狐</a><a href="assets/Jiahang_Bai_Research_CV.pdf?v=selected-papers" target="_blank" rel="noopener">英文简历（PDF）</a><a href="#s2mem">代表工作</a></div></div><a class="photo" href="assets/portrait-mountains.jpg" aria-label="查看头像"><img class="portrait" src="assets/portrait-mountains.jpg" alt="山谷中的白佳航" width="190" height="190"></a></header>
 <section id="research">
 <h2>研究兴趣</h2>
 <p>我关注的核心问题是：视觉语言动作模型（VLA）如何利用过去的经验决定下一步动作？在长时序操作中，当前画面往往缺少决策所需的信息，例如物体先前的位置，或某个步骤是否已经完成。</p>
@@ -19,7 +19,7 @@
 <article class="research"><h3>面向机器人动作的表征学习</h3><p>我希望学到能区分不同动作选择的表征，例如辨别抓取是否成功、失败后是否需要重试。我用真机任务检验这些表征能否帮助策略在当前画面存在歧义时做出更好的决策。</p></article>
 </section>
 <section id="ongoing">
-<h2>代表性研究</h2>
+<h2>精选论文</h2>
 <article class="paper-row featured-paper" id="s2mem">
   <a href="assets/s2mem-architecture.webp" target="_blank" rel="noopener" aria-label="查看 S²Mem 架构大图"><img class="paper-thumbnail" src="assets/s2mem-architecture.webp" alt="S²Mem 架构图，包含长短期视觉记忆、事件筛选和动作专家" width="2306" height="1228" loading="lazy"></a>
   <div>
