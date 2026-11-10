@@ -28,7 +28,7 @@ section{margin-top:24px;padding:26px;background:#fff;border:1px solid var(--line
 h2{font-weight:650;letter-spacing:-.018em}
 :lang(zh-CN) h2{letter-spacing:normal}
 .featured-paper{background:#f5f9fc;padding:18px;align-items:start}
-.featured-paper>a{align-self:center}
+.featured-paper>.paper-thumbnail{align-self:center}
 .paper-thumbnail{max-width:100%;border-radius:6px}
 .paper-metrics{grid-template-columns:repeat(3,minmax(0,1fr))}
 .paper-metrics>div{padding:7px 9px;background:#fff;border-radius:7px}
