@@ -9,9 +9,15 @@
 
 </head>
 <body>
-<nav aria-label="主导航"><div class="wrap"><a class="name" href="#about">白佳航</a><a href="#ongoing">研究</a><a href="#experience">科研经历</a><a href="#education">教育经历</a><a href="#personal">科研之外</a><a class="language-switch" href="index.html" hreflang="en" lang="en">English</a></div></nav>
+<nav aria-label="主导航"><div class="wrap"><a class="name" href="#about">白佳航</a><a href="#research">研究兴趣</a><a href="#ongoing">研究</a><a href="#experience">科研经历</a><a href="#education">教育经历</a><a href="#personal">科研之外</a><a class="language-switch" href="index.html" hreflang="en" lang="en">English</a></div></nav>
 <main class="wrap">
 <header id="about"><div><h1>白佳航 <span lang="en">Jiahang Bai</span></h1><p class="role">本科生 · 吉林大学人工智能学院</p><p>我研究视觉语言动作模型如何利用记忆完成长时序机器人操作任务，工作涵盖模型训练、评估和真机实验。</p><div class="links"><a href="mailto:baijh2323@mails.jlu.edu.cn">邮箱</a><a href="https://github.com/JiahangBai">GitHub</a><a href="#s2mem">代表工作</a></div></div><a class="photo" href="assets/portrait-mountains.jpg" aria-label="查看头像"><img class="portrait" src="assets/portrait-mountains.jpg" alt="山谷中的白佳航" width="190" height="190"></a></header>
+<section id="research">
+<h2>研究兴趣</h2>
+<p>我关注的核心问题是：视觉语言动作模型（VLA）如何利用过去的经验决定下一步动作？在长时序操作中，当前画面往往缺少决策所需的信息，例如物体先前的位置，或某个步骤是否已经完成。</p>
+<article class="research"><h3>VLA 的记忆与序列建模</h3><p>我研究如何从连续的视觉观测和机器人状态中筛选值得保留的信息，并在需要时调取。我尤其关注如何在长时序任务中保留短暂出现的关键事件，同时避免每一步都重新处理完整历史。</p></article>
+<article class="research"><h3>面向机器人动作的表征学习</h3><p>我希望学到能区分不同动作选择的表征，例如辨别抓取是否成功、失败后是否需要重试。我用真机任务检验这些表征能否帮助策略在当前画面存在歧义时做出更好的决策。</p></article>
+</section>
 <section id="ongoing">
 <h2>代表性研究</h2>
 <article class="paper-row featured-paper" id="s2mem">
@@ -93,7 +99,6 @@
 <div class="leadership"><h3>学生活动</h3><p>在吉林大学担任过班长和辅导员助理。</p><p class="details">报道 · <a href="https://mp.weixin.qq.com/s/-CR4iiOFx83Kbp5x8P1b0Q">辅导员助理专题</a></p><p class="details">优秀学生干部 · 优秀共青团员 · 二等奖学金 · 先进个人 · 优秀志愿者</p></div>
 <div class="leadership"><h3>爱好</h3><p>喜欢打篮球和唱歌，曾参加吉林大学院系间篮球比赛。</p><p class="details">报道 · <a href="https://mp.weixin.qq.com/s/jBBe-aK7J_uYt_GGxvR-3g">院系篮球赛报道</a></p></div>
 </section>
-<section id="research"><h2>研究兴趣</h2><article class="research"><div class="eyebrow">机器人记忆与决策</div><h3>视觉语言动作模型中的记忆</h3><p>我研究当当前画面不足以支持决策时，如何利用历史观测完成机器人操作，具体关注记忆表征、关键事件筛选以及如何在动作预测中使用记忆。</p></article><article class="research"><div class="eyebrow">真机机器人学习</div><h3>从示范中学习操作</h3><p>我的工作涵盖示范采集、数据处理、策略训练、评估和部署。我在 Baxter 上开展衣物折叠实验，并分析遮挡、物体变形和任务阶段切换造成的失败。</p></article></section>
 <footer>© 2026 白佳航 · 更新于 2026 年 11 月</footer>
 </main>
 <script>
