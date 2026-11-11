@@ -11,7 +11,7 @@
 <body>
 <nav aria-label="Main navigation"><div class="wrap"><a class="name" href="#about">Jiahang Bai</a><a href="#research">Interests</a><a href="#ongoing">Papers</a><a href="#experience">Experience</a><a href="#education">Education</a><a href="#honors">Competitions &amp; Awards</a><a class="language-switch" href="zh.html" hreflang="zh-CN" lang="zh-CN">简体中文</a></div></nav>
 <main class="wrap">
-<header id="about"><div><h1>Jiahang Bai <span lang="zh">白佳航</span></h1><p class="role">Undergraduate · School of Artificial Intelligence<br>Jilin University</p><p>I’m an undergraduate at Jilin University’s School of Artificial Intelligence. I spent nearly a year as an embodied AI algorithm intern at <a href="https://www.dexmal.com/">Dexmal</a>, where I worked on model training and real-robot experiments.</p><p>One question keeps me curious: beyond scaling data and parameters, how can we expand the context robots can use to act, from current observations to past interactions?</p><p>That question led to my first paper, <a href="#s2mem">S²Mem</a>, on how robots can retain fleeting visual cues and act on them later.</p><p>As foundation models like GPT Astra become more capable, I see a key step toward physical AI in pairing strong vision-language models with action token representations that preserve what matters for control.</p><div class="links"><a href="mailto:baijh2323@mails.jlu.edu.cn">Email</a><a href="https://github.com/JiahangBai">GitHub</a><a href="https://xhslink.cn/o/AUrNLGoAuPa" target="_blank" rel="noopener">Xiaohongshu · 北极狐</a><a href="assets/Jiahang_Bai_Research_CV.pdf?v=selected-papers" target="_blank" rel="noopener">CV (PDF)</a><a href="#s2mem">Featured Work</a></div></div><div class="photo"><img class="portrait" src="assets/portrait-mountains.jpg" alt="Jiahang Bai in a mountain valley" width="190" height="190"></div></header>
+<header id="about"><div><h1>Jiahang Bai <span lang="zh">白佳航</span></h1><p class="role">Undergraduate · School of Artificial Intelligence<br>Jilin University</p><p>I’m an undergraduate at Jilin University’s School of Artificial Intelligence. I work as an embodied AI algorithm intern at <a href="https://www.dexmal.com/">Dexmal</a>, where I worked on model training and real-robot experiments.</p><p>One question keeps me curious: beyond scaling data and parameters, how can we expand the context robots can use to act, from current observations to past interactions?</p><p>That question led to my first paper, <a href="#s2mem">S²Mem</a>, on how robots can retain fleeting visual cues and act on them later.</p><p>As foundation models like GPT Astra become more capable, I see a key step toward physical AI in pairing strong vision-language models with action token representations that preserve what matters for control.</p><div class="links"><a href="mailto:baijh2323@mails.jlu.edu.cn">Email</a><a href="https://github.com/JiahangBai">GitHub</a><a href="https://xhslink.cn/o/AUrNLGoAuPa" target="_blank" rel="noopener">Xiaohongshu · 北极狐</a><a href="assets/Jiahang_Bai_Research_CV.pdf?v=research-sync" target="_blank" rel="noopener">CV (PDF)</a><a href="#s2mem">Featured Work</a></div></div><div class="photo"><img class="portrait" src="assets/portrait-mountains.jpg" alt="Jiahang Bai in a mountain valley" width="190" height="190"></div></header>
 <section id="research">
 <h2>Research Interests</h2>
 <p>My central question is how vision-language-action (VLA) policies can use past experience to choose what to do next. In long-horizon manipulation, the current observation often leaves out facts that matter for action, such as an object’s earlier location or whether a step has already been completed.</p>
@@ -24,54 +24,52 @@
   <div>
     <h3>S²Mem: From Sparse Cues to Decision-Relevant Memory in Vision-Language-Action Models</h3>
     <p class="details"><strong>Jiahang Bai</strong>, Leyang Wang, Zixuan Huang, Wenxuan Guo, Xutao Sun, Kaixi Ying, Xiaowen Qin, Ze Chen, Erjin Zhou, Yixing Gao</p>
-    <p class="paper-status">Under review · First author · 2026</p>
-    <p class="paper-description">Robots sometimes need to act on something they saw earlier but can no longer see. S²Mem uses robot motion to select which visual cues to retain in multi-scale memory and trains the policy to recover masked past events.</p>
+    <p class="paper-status">Under review · Sole first author · 2026</p>
+    <p class="paper-description">Long-horizon manipulation often depends on fleeting visual cues, and most demonstrated actions offer little supervision for using history. As frames leave a short-term window, S²Mem uses subsequent robot motion to decide which to keep in long-term memory. An event-aligned prediction objective trains memory queries to recover frozen DINOv2 features of masked events. During action training, LoRA adapts the language model while the pretrained VLM backbone stays frozen.</p>
     <dl class="paper-metrics">
       <div><dt>RoboTwin-MeM</dt><dd><strong>95.3%</strong><span>+20.1 pp vs. EventVLA</span></dd></div>
       <div><dt>RMBench</dt><dd><strong>80.7%</strong><span>+12.9 pp vs. EventVLA</span></dd></div>
-      <div><dt>Real-world mean success</dt><dd><strong>83.33%</strong><span>+35.0 pp vs. strongest baseline</span></dd></div>
+      <div><dt>Mobile ALOHA</dt><dd><strong>83.33%</strong><span>+35.0 pp vs. strongest baseline</span></dd></div>
     </dl>
   </div>
   <img class="paper-thumbnail" src="assets/s2mem-architecture.webp?v=masked-past-event" alt="S²Mem architecture showing short- and long-term visual memory, event selection, and the action expert" width="1400" height="788" loading="lazy">
 </article>
 <h3 class="ongoing-title">Co-authored Papers</h3>
 <ul class="details ongoing-list">
-<li>Sight-RLT: Control-Oriented RL Tokens from Frozen Vision-Language-Action Models<br><span class="paper-status">Under review · Co-author · 2026</span></li>
-<li>FutureTacVLA: Dynamics-Aware In-Expert Foresight for Contact-Rich Robotic Manipulation<br><span class="paper-status">Under review · Co-author · 2026</span></li>
+<li>FutureTacVLA: Unifying Interaction Foresight and Contact Dynamics Awareness for Visuotactile Manipulation<br><span class="paper-status">Under review · Co-author · 2026</span><br>Visuotactile forecasting and contact modeling · vs FTP-1, UniVTAC 83.50% (+16.84 pp), real robots 77.3% (+25.3 pp)</li>
+<li>Sight-RLT: Control-Oriented RL Tokens from Vision-Language-Action Models<br><span class="paper-status">Under review · Co-author · 2026</span><br>Frozen VLA features for online RL · ManiSkill-Fine vs RLT (+11.27 pp seen / +8.54 pp unseen)</li>
 </ul>
 </section>
 
 <section id="experience"><h2>Research Experience</h2><article class="entry">
   <img class="logo" src="assets/dexmal.png" alt="Dexmal logo" loading="lazy">
   <div>
-    <div class="entry-head"><h3><a href="https://www.dexmal.com/">Dexmal</a></h3><span class="date">Jan. – Nov. 2026</span></div>
+    <div class="entry-head"><h3><a href="https://www.dexmal.com/">Dexmal</a></h3><span class="date">Jan. 2026 – Present</span></div>
     <p>Embodied AI Algorithm Intern</p>
     <p class="details">Mentor: <a href="https://openreview.net/profile?id=~Ze_Chen8">Ze Chen</a></p>
-    <p class="details">Debugged robot setups and ran multiple real-world experiments on Mobile ALOHA and Dexmal DOS-W1.</p>
     <ul class="details internship-timeline">
-      <li><strong>Jan. – Feb. · π₀ action generation.</strong> Explored step distillation to reduce the number of iterative denoising steps needed to generate actions.</li>
-      <li><strong>Mar. – Apr. · High-level VLA reasoning.</strong> Explored how the pretrained DM05 vision-language model could support high-level task reasoning and embodied chain-of-thought (ECoT).</li>
-      <li><strong>May – Nov. · Memory for VLA.</strong> Developed <a href="#s2mem">S²Mem</a> to select and retain brief visual cues for memory-dependent manipulation.
-        <p>Aug. – Nov. · Also contributed to tactile VLA (FutureTacVLA) and online reinforcement learning for VLA post-training (Sight-RLT).</p>
-      </li>
+      <li><strong>Jan. – Feb. · π₀ sampling distillation</strong> Explored distilling denoising steps to accelerate action generation.</li>
+      <li><strong>Mar. – May · DM0.5 embodied reasoning pretraining</strong> Designed embodied chain-of-thought tasks and specified candidate data and supervision for spatial grounding, task progress, and hierarchical planning.</li>
+      <li><strong>Jun. – Jul. · VLA context modeling</strong> Explored history selection and readout for DM05 Memory. The team’s DM05-MEM later <a href="https://github.com/dexmal/opendm#news">ranked first on RoboDojo-Sim</a>.</li>
+      <li><strong>Aug. – Present · Algorithm research</strong> Contributed to three papers under review on memory, tactile VLA, and online RL. Achieved SOTA among compared methods on RoboTwin-MeM (+20.1 pp vs EventVLA), RMBench (+12.9 pp vs EventVLA), UniVTAC (+16.84 pp vs FTP-1), and ManiSkill-Fine (+11.27 pp on seen and +8.54 pp on unseen initializations vs RLT). Ran real-robot evaluations on DOS-W1, Mobile ALOHA, RealMan, and ARX and supported training on 100-GPU-scale clusters.</li>
     </ul>
   </div>
 </article>
 <article class="entry">
   <img class="logo intern-logo" src="assets/hkust-gz.png" alt="HKUST Guangzhou emblem" loading="lazy">
   <div><div class="entry-head"><h3><a href="https://www.hkust-gz.edu.cn/">The Hong Kong University of Science and Technology (Guangzhou)</a></h3><span class="date">Jul. – Aug. 2026</span></div>
-  <p>Research Intern (Remote)</p><p class="details">Mentors: <a href="https://kolakivy.github.io/">Qiwei Liang</a> and Renjing Xu. Worked on representation learning and multi-task policy learning for world action models.</p></div>
+  <p>Research Intern (Remote)</p><p class="details">Mentors: <a href="https://kolakivy.github.io/">Qiwei Liang</a> and Renjing Xu. Built a multi-task RL prototype for world action models and explored using dynamics supervision from rollouts to refine visual–action representations for policy updates.</p></div>
 </article>
 <article class="entry">
   <img class="logo intern-logo" src="assets/cas-icon.png" alt="Chinese Academy of Sciences emblem" loading="lazy">
   <div><div class="entry-head"><h3><a href="https://zxsq.ucas.ac.cn/login/index/ti">CAS Undergraduate Innovation and Research Training Program</a></h3><span class="date">Dec. 2024 – Jun. 2025</span></div>
-  <p>Research Intern (Remote)</p><p class="details">Mentor: Jianghao Wang (Institute of Geographic Sciences and Natural Resources Research, CAS). Worked on BERT-based sentiment analysis and spatiotemporal social-media data processing.</p></div>
+  <p>Research Intern (Remote)</p><p class="details">Mentor: Jianghao Wang (Institute of Geographic Sciences and Natural Resources Research, CAS). Designed LLM-based labeling for sentiment and depression-related social media text and explored fine-tuning BERT on the generated labels.</p></div>
 </article>
 
 <article class="entry">
   <img class="logo intern-logo" src="assets/jlu-ai.png" alt="School of Artificial Intelligence, Jilin University" loading="lazy">
   <div><div class="entry-head"><h3><a href="https://www.jlu.edu.cn/">Jilin University</a></h3><span class="date">Dec. 2025 – Present</span></div>
-  <p>Undergraduate Research</p><p class="details">Humanoid Robotics and Vision Laboratory. Mentor: <a href="https://sai.jlu.edu.cn/info/1094/3451.htm">Yixing Gao</a>. Reproduced OpenVLA and π₀.₅, fine-tuned policies for real-robot shirt folding, and explored whether policies could retry after failed attempts.</p><p class="details">Worked with Baxter, RealMan robots, and LimX Dynamics TRON 2.</p></div>
+  <p>Undergraduate Research</p><p class="details">Humanoid Robotics and Vision Laboratory. Mentor: <a href="https://sai.jlu.edu.cn/info/1094/3451.htm">Yixing Gao</a>. Reproduced OpenVLA and π₀.₅, fine-tuned policies for real-robot shirt folding, and explored whether policies could retry after failed attempts.</p><p class="details">Worked with Baxter, RealMan, and LimX Dynamics TRON 2, and built <a href="https://github.com/JiahangBai/AdaChunkWAM">AdaChunkWAM</a> to adapt FastWAM’s action chunks and replanning to predicted scene changes.</p></div>
 </article>
 </section>
 
@@ -92,8 +90,8 @@
 <h2>Outside Research</h2>
 <h3 id="honors">Competitions &amp; Awards</h3>
 
-<article class="award-feature"><div class="award-year">2026</div><div><a class="award-certificate" href="assets/robocup-2026-public.webp" target="_blank" rel="noopener"><img src="assets/robocup-2026-public.webp" alt="View RoboCup China second-prize certificate" loading="lazy"></a><div class="award-label">NATIONAL ROBOTICS COMPETITION</div><h3>RoboCup China · Humanoid League</h3><p class="award-result">National Second Prize <span class="award-divider">/</span> Top 8 Nationwide</p><p class="lead-role">Team Captain</p><p class="details">Designed and developed core algorithms, including robot positioning and return-to-field logic. Used feedback from real-robot trials to tune movement speed and improve shooting performance. As captain, coordinated the team, organized practice and task assignments, and served as the point of contact with competition organizers.</p></div></article>
-<article class="award-feature"><div class="award-year">2025</div><div><a class="award-certificate" href="assets/mcm-finalist-2025-public.webp" target="_blank" rel="noopener"><img src="assets/mcm-finalist-2025-public.webp" alt="View MCM Finalist certificate" loading="lazy"></a><div class="award-label">INTERNATIONAL MATHEMATICAL MODELING COMPETITION</div><h3>MCM/ICM · Finalist Award</h3><p class="award-result">Top 1% <span class="award-divider">/</span> Jilin University’s only Finalist team that year</p><p class="lead-role">Team Captain</p><p class="details">As team captain for 2025 MCM Problem C, led problem decomposition and model formulation and designed and implemented the core algorithms. Focused on two questions: forecasting Olympic gold-medal counts and estimating the “great coach” effect. Used LSTM-based modeling for medal forecasting.</p></div></article>
+<article class="award-feature"><div class="award-year">2026</div><div><a class="award-certificate" href="assets/robocup-2026-public.webp" target="_blank" rel="noopener"><img src="assets/robocup-2026-public.webp" alt="View RoboCup China second-prize certificate" loading="lazy"></a><div class="award-label">NATIONAL ROBOTICS COMPETITION</div><h3><a href="https://www.caa.org.cn/article/191/6195.html">RoboCup China Open · Humanoid Soccer (Large)</a></h3><p class="award-result"><a href="assets/robocup-2026-public.webp">National Second Prize</a> <span class="award-divider">/</span> Top 8 Nationwide</p><p class="lead-role">Team Captain</p><p class="details">Designed and developed core algorithms, including robot positioning and return-to-field logic. Used feedback from real-robot trials to tune movement speed and improve shooting performance. As captain, coordinated the team, organized practice and task assignments, and served as the point of contact with competition organizers.</p></div></article>
+<article class="award-feature"><div class="award-year">2025</div><div><a class="award-certificate" href="assets/mcm-finalist-2025-public.webp" target="_blank" rel="noopener"><img src="assets/mcm-finalist-2025-public.webp" alt="View MCM Finalist certificate" loading="lazy"></a><div class="award-label">INTERNATIONAL MATHEMATICAL MODELING COMPETITION</div><h3>MCM/ICM · Finalist Award</h3><p class="award-result"><a href="https://www.contest.comap.com/undergraduate/contests/mcm/contests/2025/results/2025_MCM_Problem_C_Results.pdf#page=14">Jilin University’s sole Problem C Finalist</a></p><p class="lead-role">Team Captain</p><p class="details">As team captain for 2025 MCM Problem C, led problem decomposition and model formulation and designed and implemented the core algorithms. Focused on two questions: forecasting Olympic gold-medal counts and estimating the “great coach” effect. Used LSTM-based modeling for medal forecasting.</p></div></article>
 <ul class="awards"><li><time>2024</time><span>Third Prize, National College Student Mathematics Competition</span></li><li><time>2024</time><span>Second Prize, Jilin Provincial Virtual Reality Competition; Merit Award, SuperMap Cup University GIS Competition, Application Development Track</span></li></ul>
 <p class="details">Report · <a href="https://mp.weixin.qq.com/s/TONbN0jL97cidkeUOd3OWg">Student competition coverage</a></p>
 <div class="leadership"><h3>Student Activities</h3><p>I served as class monitor and as a student counselor assistant at Jilin University.</p><p class="details">Report · <a href="https://mp.weixin.qq.com/s/-CR4iiOFx83Kbp5x8P1b0Q">Student counselor assistant feature</a></p><p class="details">Outstanding Student Leader · Outstanding Communist Youth League Member · Second-Class Scholarship · Advanced Individual · Outstanding Volunteer</p></div>

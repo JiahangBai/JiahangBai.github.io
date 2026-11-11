@@ -11,7 +11,7 @@
 <body>
 <nav aria-label="主导航"><div class="wrap"><a class="name" href="#about">白佳航</a><a href="#research">研究兴趣</a><a href="#ongoing">论文</a><a href="#experience">科研经历</a><a href="#education">教育经历</a><a href="#honors">竞赛与奖项</a><a class="language-switch" href="index.html" hreflang="en" lang="en">English</a></div></nav>
 <main class="wrap">
-<header id="about"><div><h1>白佳航 <span lang="en">Jiahang Bai</span></h1><p class="role">本科生 · 吉林大学人工智能学院</p><p>我还在吉林大学人工智能学院读本科，曾在 <a href="https://www.dexmal.com/">Dexmal</a> 做了近一年的具身智能算法实习，参与模型训练和真机实验。</p><p>有个问题一直让我好奇：除了扩大数据量和参数规模，如何让机器人在行动时用上更丰富的上下文，从当前观测延伸到过去的交互？</p><p>于是，我在第一篇论文 <a href="#s2mem">S²Mem</a> 中探索了如何让机器人保留短暂出现的视觉线索，并用它们指导后续动作。</p><p>随着 GPT Astra 等基础模型的能力不断增强，我认为迈向 Physical AI 的关键一步是将强视觉语言模型与能保留控制关键信息的 Action Token 表征结合起来。</p><div class="links"><a href="mailto:baijh2323@mails.jlu.edu.cn">邮箱</a><a href="https://github.com/JiahangBai">GitHub</a><a href="https://xhslink.cn/o/AUrNLGoAuPa" target="_blank" rel="noopener">小红书 · 北极狐</a><a href="assets/Jiahang_Bai_Research_CV.pdf?v=selected-papers" target="_blank" rel="noopener">英文简历（PDF）</a><a href="#s2mem">代表工作</a></div></div><div class="photo"><img class="portrait" src="assets/portrait-mountains.jpg" alt="山谷中的白佳航" width="190" height="190"></div></header>
+<header id="about"><div><h1>白佳航 <span lang="en">Jiahang Bai</span></h1><p class="role">本科生 · 吉林大学人工智能学院</p><p>我还在吉林大学人工智能学院读本科，目前在 <a href="https://www.dexmal.com/">Dexmal</a> 担任具身智能算法实习生，参与模型训练和真机实验。</p><p>有个问题一直让我好奇：除了扩大数据量和参数规模，如何让机器人在行动时用上更丰富的上下文，从当前观测延伸到过去的交互？</p><p>于是，我在第一篇论文 <a href="#s2mem">S²Mem</a> 中探索了如何让机器人保留短暂出现的视觉线索，并用它们指导后续动作。</p><p>随着 GPT Astra 等基础模型的能力不断增强，我认为迈向 Physical AI 的关键一步是将强视觉语言模型与能保留控制关键信息的 Action Token 表征结合起来。</p><div class="links"><a href="mailto:baijh2323@mails.jlu.edu.cn">邮箱</a><a href="https://github.com/JiahangBai">GitHub</a><a href="https://xhslink.cn/o/AUrNLGoAuPa" target="_blank" rel="noopener">小红书 · 北极狐</a><a href="assets/Jiahang_Bai_Research_CV.pdf?v=research-sync" target="_blank" rel="noopener">英文简历（PDF）</a><a href="#s2mem">代表工作</a></div></div><div class="photo"><img class="portrait" src="assets/portrait-mountains.jpg" alt="山谷中的白佳航" width="190" height="190"></div></header>
 <section id="research">
 <h2>研究兴趣</h2>
 <p>我关注的核心问题是：视觉语言动作模型（VLA）如何利用过去的经验决定下一步动作？在长时序操作中，当前画面往往缺少决策所需的信息，例如物体先前的位置，或某个步骤是否已经完成。</p>
@@ -24,54 +24,52 @@
   <div>
     <h3>S²Mem: From Sparse Cues to Decision-Relevant Memory in Vision-Language-Action Models</h3>
     <p class="details"><strong>Jiahang Bai</strong>, Leyang Wang, Zixuan Huang, Wenxuan Guo, Xutao Sun, Kaixi Ying, Xiaowen Qin, Ze Chen, Erjin Zhou, Yixing Gao</p>
-    <p class="paper-status">审稿中 · 第一作者 · 2026</p>
-    <p class="paper-description">机器人有时需要根据已经离开视野的线索行动。S²Mem 利用机器人的运动信息筛选视觉线索，将其保存在多尺度记忆中，并通过恢复被掩蔽的历史事件训练策略。</p>
+    <p class="paper-status">审稿中 · 独立一作 · 2026</p>
+    <p class="paper-description">长程操作的关键线索往往只出现片刻，而多数示范动作只需当前画面，模型很少获得必须利用历史的监督信号。帧移出短时窗口时，S²Mem 根据该帧之后的本体运动决定是否将其写入长时记忆，再用事件对齐的掩蔽预测训练记忆查询恢复冻结的 DINOv2 特征。动作训练时冻结预训练 VLM 主干，用 LoRA 适配语言模型以减小表征漂移。</p>
     <dl class="paper-metrics">
       <div><dt>RoboTwin-MeM</dt><dd><strong>95.3%</strong><span>较 EventVLA 高 20.1 个百分点</span></dd></div>
       <div><dt>RMBench</dt><dd><strong>80.7%</strong><span>较 EventVLA 高 12.9 个百分点</span></dd></div>
-      <div><dt>真机平均成功率</dt><dd><strong>83.33%</strong><span>较最强基线高 35.0 个百分点</span></dd></div>
+      <div><dt>Mobile ALOHA 真机</dt><dd><strong>83.33%</strong><span>较最强基线高 35.0 个百分点</span></dd></div>
     </dl>
   </div>
   <img class="paper-thumbnail" src="assets/s2mem-architecture.webp?v=masked-past-event" alt="S²Mem 架构图，包含长短期视觉记忆、事件筛选和动作专家" width="1400" height="788" loading="lazy">
 </article>
 <h3 class="ongoing-title">合作论文</h3>
 <ul class="details ongoing-list">
-<li>Sight-RLT: Control-Oriented RL Tokens from Frozen Vision-Language-Action Models<br><span class="paper-status">审稿中 · 共同作者 · 2026</span></li>
-<li>FutureTacVLA: Dynamics-Aware In-Expert Foresight for Contact-Rich Robotic Manipulation<br><span class="paper-status">审稿中 · 共同作者 · 2026</span></li>
+<li>FutureTacVLA: Unifying Interaction Foresight and Contact Dynamics Awareness for Visuotactile Manipulation<br><span class="paper-status">审稿中 · 共同作者 · 2026</span><br>视触觉预测与接触动力学建模 · 较 FTP-1，UniVTAC 83.50%（+16.84 pp），真机 77.3%（+25.3 pp）</li>
+<li>Sight-RLT: Control-Oriented RL Tokens from Vision-Language-Action Models<br><span class="paper-status">审稿中 · 共同作者 · 2026</span><br>从冻结 VLA 提取控制表征用于在线 RL · ManiSkill-Fine 较 RLT 高 11.27／8.54 pp（已见／未见）</li>
 </ul>
 </section>
 
 <section id="experience"><h2>科研经历</h2><article class="entry">
   <img class="logo" src="assets/dexmal.png" alt="Dexmal 标识" loading="lazy">
   <div>
-    <div class="entry-head"><h3><a href="https://www.dexmal.com/">Dexmal</a></h3><span class="date">2026 年 1–11 月</span></div>
+    <div class="entry-head"><h3><a href="https://www.dexmal.com/">Dexmal</a></h3><span class="date">2026 年 1 月至今</span></div>
     <p>具身智能算法实习生</p>
     <p class="details">导师：<a href="https://openreview.net/profile?id=~Ze_Chen8">陈泽</a></p>
-    <p class="details">在 Mobile ALOHA 和 Dexmal DOS-W1 上完成真机调试和多项实验。</p>
     <ul class="details internship-timeline">
-      <li><strong>1–2 月 · π₀ 动作生成。</strong> 探索步数蒸馏，以减少动作生成所需的迭代去噪步数。</li>
-      <li><strong>3–4 月 · VLA 高层推理。</strong> 探索如何利用 DM05 预训练视觉语言模型进行高层任务推理和具身思维链（ECoT）。</li>
-      <li><strong>5–11 月 · VLA 记忆。</strong> 开发 <a href="#s2mem">S²Mem</a>，筛选并保留短暂出现的视觉线索，用于依赖记忆的操作任务。
-        <p>8–11 月 · 同时参与触觉 VLA（FutureTacVLA）与基于在线强化学习的 VLA 后训练（Sight-RLT）。</p>
-      </li>
+      <li><strong>1–2 月 · π₀ 采样蒸馏</strong> 探索如何通过去噪步数蒸馏加快动作生成。</li>
+      <li><strong>3–5 月 · DM0.5 具身推理预训练</strong> 围绕空间定位、任务进度判断和分层规划，设计具身思维链任务与监督信号，并梳理候选数据。</li>
+      <li><strong>6–7 月 · VLA 时序上下文建模</strong> 为 DM05 Memory 探索历史观测的筛选与读取方法。团队的 DM05-MEM 后续<a href="https://github.com/dexmal/opendm#news">登顶 RoboDojo-Sim</a>。</li>
+      <li><strong>8 月至今 · 算法预研</strong> 围绕记忆、触觉 VLA 和在线强化学习完成三篇在审论文。在 RoboTwin-MeM（较 EventVLA 高 20.1 个百分点）、RMBench（较 EventVLA 高 12.9 个百分点）、UniVTAC（较 FTP-1 高 16.84 个百分点）和 ManiSkill-Fine（较 RLT 高 11.27／8.54 个百分点，对应已见／未见初始状态） 上达到所比较方法中的 SOTA。在 DOS-W1、Mobile ALOHA、RealMan 和 ARX 上开展真机评测，并参与百卡级 GPU 集群训练。</li>
     </ul>
   </div>
 </article>
 <article class="entry">
   <img class="logo intern-logo" src="assets/hkust-gz.png" alt="港科大（广州）标识" loading="lazy">
   <div><div class="entry-head"><h3><a href="https://www.hkust-gz.edu.cn/">香港科技大学（广州）</a></h3><span class="date">2026 年 7–8 月</span></div>
-  <p>科研实习生（远程）</p><p class="details">导师：<a href="https://kolakivy.github.io/">梁棋炜</a>、许人镜。研究世界动作模型的表征学习和多任务策略学习。</p></div>
+  <p>科研实习生（远程）</p><p class="details">导师：<a href="https://kolakivy.github.io/">梁棋炜</a>、许人镜。搭建世界动作模型的多任务强化学习原型，探索用策略采样的轨迹监督前向和逆向动力学模型，并将学到的视觉与动作表征用于策略更新。</p></div>
 </article>
 <article class="entry">
   <img class="logo intern-logo" src="assets/cas-icon.png" alt="中国科学院标识" loading="lazy">
   <div><div class="entry-head"><h3><a href="https://zxsq.ucas.ac.cn/login/index/ti">中国科学院大学生创新实践训练计划（科创计划）</a></h3><span class="date">2024 年 12 月–2025 年 6 月</span></div>
-  <p>科研实习生（远程）</p><p class="details">导师：王江浩（中国科学院地理科学与资源研究所）。开展基于 BERT 的情感分析和社交媒体时空数据处理。</p></div>
+  <p>科研实习生（远程）</p><p class="details">导师：王江浩（中国科学院地理科学与资源研究所）。为社交媒体文本设计 LLM 标注流程，迭代情绪与抑郁相关文本的分类提示词，并探索用生成的标签微调 BERT。</p></div>
 </article>
 
 <article class="entry">
   <img class="logo intern-logo" src="assets/jlu-ai.png" alt="吉林大学人工智能学院" loading="lazy">
   <div><div class="entry-head"><h3><a href="https://www.jlu.edu.cn/">吉林大学</a></h3><span class="date">2025 年 12 月至今</span></div>
-  <p>本科生科研</p><p class="details">人形机器人与视觉实验室。 导师：<a href="https://sai.jlu.edu.cn/info/1094/3451.htm">高一星</a>。复现 OpenVLA 和 π₀.₅，针对叠衣任务进行真机策略微调，并探索失败后的重试能力。</p><p class="details">使用过 Baxter、睿尔曼和逐际动力 TRON 2 真机平台。</p></div>
+  <p>本科生科研</p><p class="details">人形机器人与视觉实验室。 导师：<a href="https://sai.jlu.edu.cn/info/1094/3451.htm">高一星</a>。复现 OpenVLA 和 π₀.₅，针对叠衣任务进行真机策略微调，并探索失败后的重试能力。</p><p class="details">在 Baxter、睿尔曼和逐际动力 TRON 2 上开展真机实验，并开发 <a href="https://github.com/JiahangBai/AdaChunkWAM">AdaChunkWAM</a>，根据预测的场景变化调整 FastWAM 的动作块长度与重规划间隔。</p></div>
 </article>
 </section>
 
@@ -92,8 +90,8 @@
 <h2>科研之外</h2>
 <h3 id="honors">竞赛与奖项</h3>
 
-<article class="award-feature"><div class="award-year">2026</div><div><a class="award-certificate" href="assets/robocup-2026-public.webp" target="_blank" rel="noopener"><img src="assets/robocup-2026-public.webp" alt="查看 RoboCup 中国赛二等奖证书" loading="lazy"></a><div class="award-label">全国机器人竞赛</div><h3>RoboCup 中国赛 · 类人足球组</h3><p class="award-result">全国二等奖 <span class="award-divider">/</span> 全国前八</p><p class="lead-role">队长</p><p class="details">设计并开发核心算法，实现机器人站位和回场逻辑，根据真机实验反馈优化移动速度和射门表现。担任队长，统筹全队、组织训练和分工，并负责与赛事方沟通。</p></div></article>
-<article class="award-feature"><div class="award-year">2025</div><div><a class="award-certificate" href="assets/mcm-finalist-2025-public.webp" target="_blank" rel="noopener"><img src="assets/mcm-finalist-2025-public.webp" alt="查看美赛 Finalist 证书" loading="lazy"></a><div class="award-label">美国大学生数学建模竞赛</div><h3>美赛 · Finalist（F 奖）</h3><p class="award-result">前 1% <span class="award-divider">/</span> 吉林大学当年唯一 F 奖队伍</p><p class="lead-role">队长</p><p class="details">担任队长，主导 2025 年美赛 C 题的问题拆解和模型定义，设计并实现核心算法。主要负责预测奥运金牌数和估计「名教练效应」两项任务，并使用 LSTM 等方法进行奖牌预测。</p></div></article>
+<article class="award-feature"><div class="award-year">2026</div><div><a class="award-certificate" href="assets/robocup-2026-public.webp" target="_blank" rel="noopener"><img src="assets/robocup-2026-public.webp" alt="查看 RoboCup 中国赛二等奖证书" loading="lazy"></a><div class="award-label">全国机器人竞赛</div><h3><a href="https://www.caa.org.cn/article/191/6195.html">RoboCup 中国赛 · 类人足球（Large 组）</a></h3><p class="award-result"><a href="assets/robocup-2026-public.webp">全国二等奖</a> <span class="award-divider">/</span> 全国前八</p><p class="lead-role">队长</p><p class="details">设计并开发核心算法，实现机器人站位和回场逻辑，根据真机实验反馈优化移动速度和射门表现。担任队长，统筹全队、组织训练和分工，并负责与赛事方沟通。</p></div></article>
+<article class="award-feature"><div class="award-year">2025</div><div><a class="award-certificate" href="assets/mcm-finalist-2025-public.webp" target="_blank" rel="noopener"><img src="assets/mcm-finalist-2025-public.webp" alt="查看美赛 Finalist 证书" loading="lazy"></a><div class="award-label">美国大学生数学建模竞赛</div><h3>美赛 · Finalist（F 奖）</h3><p class="award-result"><a href="https://www.contest.comap.com/undergraduate/contests/mcm/contests/2025/results/2025_MCM_Problem_C_Results.pdf#page=14">吉林大学 C 题唯一 Finalist（F 奖）</a></p><p class="lead-role">队长</p><p class="details">担任队长，主导 2025 年美赛 C 题的问题拆解和模型定义，设计并实现核心算法。主要负责预测奥运金牌数和估计「名教练效应」两项任务，并使用 LSTM 等方法进行奖牌预测。</p></div></article>
 <ul class="awards"><li><time>2024</time><span>全国大学生数学竞赛三等奖</span></li><li><time>2024</time><span>吉林省虚拟现实竞赛二等奖；超图杯高校 GIS 大赛应用开发赛道优秀奖</span></li></ul>
 <p class="details">报道 · <a href="https://mp.weixin.qq.com/s/TONbN0jL97cidkeUOd3OWg">学生竞赛报道</a></p>
 <div class="leadership"><h3>学生活动</h3><p>在吉林大学担任过班长和辅导员助理。</p><p class="details">报道 · <a href="https://mp.weixin.qq.com/s/-CR4iiOFx83Kbp5x8P1b0Q">辅导员助理专题</a></p><p class="details">优秀学生干部 · 优秀共青团员 · 二等奖学金 · 先进个人 · 优秀志愿者</p></div>
