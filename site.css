@@ -57,3 +57,61 @@ h2{font-weight:650;letter-spacing:-.018em}
 .links{flex-wrap:wrap;gap:8px}
 nav a:hover,.links a:hover{color:var(--blue)}
 .links a:last-child:hover{background:#12456a;color:white}
+
+.site-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 16px;
+}
+
+.site-like {
+  text-align: end;
+}
+
+.like-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 40px;
+  padding: 0 11px;
+  color: var(--muted);
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font: inherit;
+  cursor: pointer;
+}
+
+.like-button:not([aria-disabled="true"]):hover {
+  color: var(--blue);
+  background: #fff;
+}
+
+.like-button:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 3px;
+}
+
+.like-button[aria-disabled="true"] {
+  cursor: default;
+}
+
+.like-heart {
+  font-size: 16px;
+  line-height: 1;
+}
+
+.site-like[data-liked="true"] .like-heart {
+  color: #ad4864;
+}
+
+.like-count {
+  font-variant-numeric: tabular-nums;
+}
+
+.like-status {
+  display: block;
+  color: var(--muted);
+}

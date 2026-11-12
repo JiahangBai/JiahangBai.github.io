@@ -5,7 +5,7 @@
 <title>白佳航 | 吉林大学</title>
 <meta name="description" content="白佳航，吉林大学本科生，研究方向为具身智能、机器人学习和视觉语言动作模型中的记忆。">
 <link rel="canonical" href="https://jiahangbai.github.io/">
-<link rel="stylesheet" href="site.css?v=s2mem-medium">
+<link rel="stylesheet" href="site.css?v=homepage-like">
 
 </head>
 <body>
@@ -97,7 +97,17 @@
 <div class="leadership"><h3>学生活动</h3><p>在吉林大学担任过班长和辅导员助理。</p><p class="details">报道 · <a href="https://mp.weixin.qq.com/s/-CR4iiOFx83Kbp5x8P1b0Q">辅导员助理专题</a></p><p class="details">优秀学生干部 · 优秀共青团员 · 二等奖学金 · 先进个人 · 优秀志愿者</p></div>
 <div class="leadership hobbies" id="hobbies"><h3>爱好</h3><p>我喜欢打篮球，也参加过吉林大学的院系篮球赛。凯里·欧文（Kyrie Irving）是我最喜欢的球员。</p><p class="details">报道 · <a href="https://mp.weixin.qq.com/s/jBBe-aK7J_uYt_GGxvR-3g">院系篮球赛报道</a></p><p>我也喜欢唱歌，平时爱听 R&amp;B 和嘻哈音乐。</p></div>
 </section>
-<footer>© 2026 白佳航 · 更新于 2026 年 11 月</footer>
+<footer class="site-footer">
+  <span>© 2026 白佳航 · 更新于 2026 年 11 月</span>
+  <div class="site-like" data-liked-label="谢谢你" data-error-label="点赞没存上，再试一下？" hidden>
+    <button type="button" class="like-button" aria-disabled="false">
+      <span class="like-heart" aria-hidden="true">♡</span>
+      <span class="like-label" aria-live="polite">留个赞</span>
+      <span class="like-count" hidden></span>
+    </button>
+    <span class="like-status" role="status"></span>
+  </div>
+</footer>
 </main>
 <script>
 const languageSwitch = document.querySelector('.language-switch');
@@ -105,4 +115,5 @@ languageSwitch.addEventListener('click', () => {
   languageSwitch.hash = window.location.hash;
 });
 </script>
+<script src="site-like.js" defer></script>
 </body></html>
