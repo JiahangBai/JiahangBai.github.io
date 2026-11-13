@@ -28,7 +28,14 @@ section{margin-top:24px;padding:26px;background:#fff;border:1px solid var(--line
 h2{font-weight:650;letter-spacing:-.018em}
 :lang(zh-CN) h2{letter-spacing:normal}
 .featured-paper{background:#f5f9fc;padding:18px;grid-template-columns:minmax(0,1fr);gap:18px}
-.featured-paper > .paper-thumbnail{width:100%;max-width:640px;justify-self:center}
+.architecture-placeholder {
+  padding: 20px 12px;
+  border: 1px dashed var(--line);
+  border-radius: 8px;
+  color: var(--muted);
+  font-size: 14px;
+  text-align: center;
+}
 .paper-thumbnail{max-width:100%;border-radius:6px}
 .paper-metrics{grid-template-columns:repeat(3,minmax(0,1fr))}
 .paper-metrics>div{padding:7px 9px;background:#fff;border-radius:7px}
@@ -43,12 +50,6 @@ h2{font-weight:650;letter-spacing:-.018em}
   section{padding:17px}
   .award-feature{grid-template-columns:1fr;gap:4px}
   .featured-paper{padding:12px}
-  .featured-paper > .paper-thumbnail{
-    width:calc(100% + 24px);
-    max-width:none;
-    margin:0 -12px -12px;
-    border-radius:0 0 7px 7px;
-  }
   .paper-metrics{grid-template-columns:repeat(auto-fit,minmax(100px,1fr))}
 }
 
