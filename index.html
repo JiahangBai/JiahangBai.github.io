@@ -5,18 +5,17 @@
 <title>Jiahang Bai | Jilin University</title>
 <meta name="description" content="Jiahang Bai, undergraduate at Jilin University. Research in embodied AI, robot learning and memory in vision-language-action models.">
 <link rel="canonical" href="https://jiahangbai.github.io/">
-<link rel="stylesheet" href="site.css?v=architecture-coming-soon">
+<link rel="stylesheet" href="site.css?v=alpine-1">
 
 </head>
 <body>
 <nav aria-label="Main navigation"><div class="wrap"><a class="name" href="#about">Jiahang Bai</a><a href="#research">Interests</a><a href="#ongoing">Papers</a><a href="#experience">Experience</a><a href="#education">Education</a><a href="#honors">Competitions &amp; Awards</a><a class="language-switch" href="zh.html" hreflang="zh-CN" lang="zh-CN">简体中文</a></div></nav>
 <main class="wrap">
-<header id="about"><div><h1>Jiahang Bai <span lang="zh">白佳航</span></h1><p class="role">Undergraduate · School of Artificial Intelligence<br>Jilin University</p><p>I’m an undergraduate at Jilin University’s School of Artificial Intelligence. I work as an embodied AI algorithm intern at <a href="https://www.dexmal.com/">Dexmal</a>, where I worked on model training and real-robot experiments.</p><p>One question keeps me curious: beyond scaling data and parameters, how can we expand the context robots can use to act, from current observations to past interactions?</p><p>That question led to my first paper, <a href="#s2mem">S²Mem</a>, on how robots can retain fleeting visual cues and act on them later.</p><p>As foundation models like GPT Astra become more capable, I see a key step toward physical AI in pairing strong vision-language models with action token representations that preserve what matters for control.</p><div class="links"><a href="mailto:baijh2323@mails.jlu.edu.cn">Email</a><a href="https://github.com/JiahangBai">GitHub</a><a href="https://xhslink.cn/o/AUrNLGoAuPa" target="_blank" rel="noopener">Xiaohongshu · 北极狐</a><a href="assets/Jiahang_Bai_Research_CV.pdf?v=research-sync" target="_blank" rel="noopener">CV (PDF)</a><a href="#s2mem">Featured Work</a></div></div><div class="photo"><img class="portrait" src="assets/portrait-mountains.jpg" alt="Jiahang Bai in a mountain valley" width="190" height="190"></div></header>
+<header id="about"><div><h1>Jiahang Bai <span lang="zh">白佳航</span></h1><p class="role">Undergraduate · School of Artificial Intelligence<br>Jilin University</p><p>I joined <a href="https://www.dexmal.com/">Dexmal</a> in my second year and recently finished a year-long VLA research internship there. I designed training tasks for embodied reasoning and ran experiments on dual-arm robots. For nearly six months I worked on one question: after a robot looks inside a box and closes the lid, can what it saw still guide its next move? That question became my first paper, <a href="#s2mem">S²Mem</a>.</p><div class="links"><a href="mailto:baijh2323@mails.jlu.edu.cn">Email</a><a href="https://github.com/JiahangBai">GitHub</a><a href="https://xhslink.cn/o/AUrNLGoAuPa" target="_blank" rel="noopener">Xiaohongshu · 北极狐</a><a href="assets/Jiahang_Bai_Research_CV.pdf?v=research-sync" target="_blank" rel="noopener">CV (PDF)</a><a href="#s2mem">Featured Work</a></div></div><div class="photo"><img class="portrait" src="assets/portrait-mountains.jpg" alt="Jiahang Bai in a mountain valley" width="190" height="190"></div></header>
 <section id="research">
 <h2>Research Interests</h2>
-<p>My central question is how vision-language-action (VLA) policies can use past experience to choose what to do next. In long-horizon manipulation, the current observation often leaves out facts that matter for action, such as an object’s earlier location or whether a step has already been completed.</p>
-<article class="research"><h3>Memory and sequence modeling for VLA</h3><p>I study what to retain from a stream of visual observations and robot states, and how to retrieve it when it becomes relevant. I’m particularly interested in how a policy can retain brief events over long horizons without having to process the entire history at every step.</p></article>
-<article class="research"><h3>Representation learning for robot action</h3><p>I’m interested in representations that preserve distinctions that change the next action, such as whether a grasp succeeded or whether a failed attempt calls for a retry. Real-robot tasks let me test whether those representations improve decisions when the current view is ambiguous.</p></article>
+<article class="research"><h3>Context scaling and in-context learning</h3><p>S²Mem asked what a robot should remember. Now I’m interested in what a policy can learn from a failed grasp. As more context becomes available, can it use its last few attempts to adjust its next action at test time?</p></article>
+<article class="research"><h3>Action representation</h3><p>Two grasps can look alike even when one holds and the other slips. I’d like to train an action tokenizer on dexterous hand interactions and study which differences it encodes, and whether those tokens help a vision-language model predict the outcome of contact.</p></article>
 </section>
 <section id="ongoing">
 <h2>Selected Papers</h2>
@@ -24,34 +23,35 @@
   <div>
     <h3>S²Mem: From Sparse Cues to Decision-Relevant Memory in Vision-Language-Action Models</h3>
     <p class="details"><strong>Jiahang Bai</strong>, Leyang Wang, Zixuan Huang, Wenxuan Guo, Xutao Sun, Kaixi Ying, Xiaowen Qin, Ze Chen, Erjin Zhou, Yixing Gao</p>
-    <p class="paper-status">Under review · Sole first author · 2026</p>
+    <p class="details">Jilin University · Dexmal · Tsinghua University</p>
+    <p class="paper-status">Under review at CVPR 2027 · Sole first author</p>
     <p class="paper-description">Long-horizon manipulation often depends on fleeting visual cues, and most demonstrated actions offer little supervision for using history. As frames leave a short-term window, S²Mem uses subsequent robot motion to decide which to keep in long-term memory. An event-aligned prediction objective trains memory queries to recover frozen DINOv2 features of masked events. During action training, LoRA adapts the language model while the pretrained VLM backbone stays frozen.</p>
     <dl class="paper-metrics">
-      <div><dt>RoboTwin-MeM</dt><dd><strong>95.3%</strong><span>+20.1 pp vs. EventVLA</span></dd></div>
-      <div><dt>RMBench</dt><dd><strong>80.7%</strong><span>+12.9 pp vs. EventVLA</span></dd></div>
-      <div><dt>Mobile ALOHA</dt><dd><strong>83.33%</strong><span>+35.0 pp vs. strongest baseline</span></dd></div>
+      <div><dt>RoboTwin-MeM</dt><dd><strong>96.3%</strong><span>+21.1 pp vs. EventVLA</span></dd></div>
+      <div><dt>RMBench</dt><dd><strong>85.3%</strong><span>+17.5 pp vs. EventVLA</span></dd></div>
+      <div><dt>Real-robot mean · 2 platforms, 7 settings</dt><dd><strong>80.9%</strong><span>+41.4 pp vs. strongest baseline</span></dd></div>
     </dl>
   </div>
-  <div class="architecture-placeholder">Architecture diagram · Coming soon</div>
+  <img class="paper-architecture" src="assets/s2mem-architecture-2026.png" alt="S²Mem architecture" loading="lazy">
 </article>
 <h3 class="ongoing-title">Co-authored Papers</h3>
 <ul class="details ongoing-list">
-<li>FutureTacVLA: Unifying Interaction Foresight and Contact Dynamics Awareness for Visuotactile Manipulation<br><span class="paper-status">Under review · Co-author · 2026</span><br>Visuotactile forecasting and contact modeling · vs FTP-1, UniVTAC 83.50% (+16.84 pp), real robots 77.3% (+25.3 pp)</li>
-<li>Sight-RLT: Control-Oriented RL Tokens from Vision-Language-Action Models<br><span class="paper-status">Under review · Co-author · 2026</span><br>Frozen VLA features for online RL · ManiSkill-Fine vs RLT (+11.27 pp seen / +8.54 pp unseen)</li>
+<li><img class="coauthor-architecture" src="assets/evotac-architecture.png" alt="EvoTac-VLA architecture" loading="lazy">EvoTac-VLA: Unifying Interaction Foresight and Contact Dynamics Awareness for Visuotactile Manipulation<br><span class="details">University of Science and Technology of China · Beijing Institute of Technology · Dexmal · Shantou University</span><br><span class="paper-status">Under review at CVPR 2027 · Co-author</span><br>Visuotactile forecasting and contact modeling · vs FTP-1, UniVTAC 83.50% (+16.83 pp), OpenViTac 70.16% (+9.50 pp), real robots 77.3% (+25.3 pp)</li>
+<li><img class="coauthor-architecture" src="assets/sight-rlt-architecture.png" alt="Sight-RLT architecture" loading="lazy">Sight-RLT: Control-Oriented RL Tokens from Vision-Language-Action Models<br><span class="details">City University of Hong Kong · University of Sydney · Dexmal</span><br><span class="paper-status">Under review at CVPR 2027 · Co-author</span><br>Hidden pooling and Action-Q for online RL · ManiSkill-Fine vs RLT (+22.3% seen / +26.7% unseen, relative)</li>
 </ul>
 </section>
 
 <section id="experience"><h2>Research Experience</h2><article class="entry">
   <img class="logo" src="assets/dexmal.png" alt="Dexmal logo" loading="lazy">
   <div>
-    <div class="entry-head"><h3><a href="https://www.dexmal.com/">Dexmal</a></h3><span class="date">Jan. 2026 – Present</span></div>
+    <div class="entry-head"><h3><a href="https://www.dexmal.com/">Dexmal</a></h3><span class="date">Jan. – Nov. 2026</span></div>
     <p>Embodied AI Algorithm Intern</p>
     <p class="details">Mentor: <a href="https://openreview.net/profile?id=~Ze_Chen8">Ze Chen</a></p>
     <ul class="details internship-timeline">
       <li><strong>Jan. – Feb. · π₀ sampling distillation</strong> Explored distilling denoising steps to accelerate action generation.</li>
       <li><strong>Mar. – May · DM0.5 embodied reasoning pretraining</strong> Designed embodied chain-of-thought tasks and specified candidate data and supervision for spatial grounding, task progress, and hierarchical planning.</li>
       <li><strong>Jun. – Jul. · VLA context modeling</strong> Explored history selection and readout for DM05 Memory. The team’s DM05-MEM later <a href="https://github.com/dexmal/opendm#news">ranked first on RoboDojo-Sim</a>.</li>
-      <li><strong>Aug. – Present · Algorithm research</strong> Contributed to three papers under review on memory, tactile VLA, and online RL. Achieved SOTA among compared methods on RoboTwin-MeM (+20.1 pp vs EventVLA), RMBench (+12.9 pp vs EventVLA), UniVTAC (+16.84 pp vs FTP-1), and ManiSkill-Fine (+11.27 pp on seen and +8.54 pp on unseen initializations vs RLT). Ran real-robot evaluations on DOS-W1, Mobile ALOHA, RealMan, and ARX and supported training on 100-GPU-scale clusters.</li>
+      <li><strong>Aug. – Nov. · Algorithm research</strong> Led the VLA memory project and wrote S²Mem as sole first author. Co-authored two further papers on tactile policies and online RL. All three are under review at CVPR 2027. During the internship I ran distributed training experiments on 100-GPU-scale clusters and evaluated policies on DOS-W1, Mobile ALOHA, RealMan and ARX robots.</li>
     </ul>
   </div>
 </article>

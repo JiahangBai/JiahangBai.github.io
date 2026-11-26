@@ -116,3 +116,21 @@ nav a:hover,.links a:hover{color:var(--blue)}
   display: block;
   color: var(--muted);
 }
+
+.paper-architecture{width:100%;max-width:420px;height:auto;align-self:center}.coauthor-architecture{float:right;width:210px;max-width:34%;height:auto;margin:0 0 12px 20px}.ongoing-list li{display:flow-root}@media(max-width:600px){.coauthor-architecture{width:145px;margin-left:12px}}
+
+/* An alpine palette drawn from the portrait, with quieter section boundaries. */
+:root{--ink:#20332e;--muted:#50625b;--blue:#216553;--line:#d7e1da}
+body{background:#fafbf8}
+header{background:linear-gradient(115deg,#fff 38%,#e9f2eb);border-radius:12px}
+h1,h2{font-family:Georgia,"Songti SC","Noto Serif CJK SC",serif}
+section{border:0;border-top:1px solid var(--line);border-radius:0;background:transparent}
+.featured-paper,.award-feature{background:#eff5ef}
+.paper-metrics strong{color:var(--blue);font-variant-numeric:tabular-nums}
+.links a:last-child:hover{background:#174c40}
+@media(min-width:760px){
+  #research{display:grid;grid-template-columns:1fr 1fr;gap:0 32px}
+  #research h2{grid-column:1/-1}
+  #research .research{margin:0;padding-top:8px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
