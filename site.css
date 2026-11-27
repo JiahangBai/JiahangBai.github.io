@@ -134,3 +134,44 @@ section{border:0;border-top:1px solid var(--line);border-radius:0;background:tra
   #research .research{margin:0;padding-top:8px}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+.theme-switch {
+  font: inherit;
+  font-size: 13px;
+  line-height: inherit;
+  color: var(--blue);
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 4px 11px;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.theme-switch:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px }
+.theme-switch:hover { border-color: var(--blue) }
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --ink: #e5eee8;
+  --muted: #b0c1b8;
+  --blue: #92d6ba;
+  --line: #364a40;
+  --surface: #19251f;
+  --raised: #23342b;
+}
+[data-theme="dark"] body { background: #121b16 }
+[data-theme="dark"] nav,
+[data-theme="dark"] .paper-metrics > div,
+[data-theme="dark"] .links a,
+[data-theme="dark"] .like-button:not([aria-disabled="true"]):hover { background: var(--surface) }
+[data-theme="dark"] header { background: linear-gradient(115deg,var(--surface) 38%,#23392e) }
+[data-theme="dark"] .featured-paper,
+[data-theme="dark"] .award-feature,
+[data-theme="dark"] .lead-role { background: var(--raised) }
+[data-theme="dark"] .lead-role { color: var(--blue) }
+[data-theme="dark"] .research p,
+[data-theme="dark"] .paper-description { color: var(--muted) }
+[data-theme="dark"] .links a:last-child { background: var(--blue); color: #13271e }
+[data-theme="dark"] .links a:last-child:hover { background: #b2ebd2 }
+[data-theme="dark"] .logo { background: #f3f6f3; border-radius: 8px; padding: 4px }
+[data-theme="dark"] .portrait { border-color: var(--line) }
+[data-theme="dark"] .site-like[data-liked="true"] .like-heart { color: #f698b2 }
